@@ -652,6 +652,8 @@ namespace Gecode {
     IntArgs(int n, const int* e);
     /// Initialize from primitive argument array \a a (copy elements)
     IntArgs(const ArgArray<int>& a);
+    /// Assignment operator
+    IntArgs& operator =(const IntArgs&) = default;
 
     /// Allocate array with \a n elements such that for all \f$0\leq i<n: x_i=\text{start}+i\cdot\text{inc}\f$
     static IntArgs create(int n, int start, int inc=1);
@@ -704,10 +706,9 @@ namespace Gecode {
      */
     GECODE_INT_EXPORT
     IntVarArgs(Space& home, int n, const IntSet& s);
-    //@}
-
     /// Assignment operator
     IntVarArgs& operator =(const IntVarArgs&) = default;
+    //@}
   };
 
   /** \brief Passing Boolean variables
@@ -750,6 +751,8 @@ namespace Gecode {
      */
     GECODE_INT_EXPORT
     BoolVarArgs(Space& home, int n, int min, int max);
+    /// Assignment operator
+    BoolVarArgs& operator =(const BoolVarArgs&) = default;
     //@}
   };
   //@}
