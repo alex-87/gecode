@@ -35,7 +35,6 @@
 
 #include <gecode/float.hh>
 
-#ifdef GECODE_HAS_MPFR
 
 #include <gecode/float/transcendental.hh>
 
@@ -75,6 +74,5 @@ namespace Gecode {
 
 }
 
-#endif
 
 // STATISTICS: float-post

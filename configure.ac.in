@@ -278,7 +278,7 @@ AC_GECODE_VTI(int, finite domain library, yes,
 dnl End of definition of variable types
 dnl ------------------------------------------------------------------
 
-AC_GECODE_MPFR
+dnl AC_GECODE_MPFR
 AC_GECODE_QT
 AC_GECODE_GIST
 AC_GECODE_CBS

@@ -52,7 +52,6 @@ namespace Gecode { namespace MiniModel {
       ANLFE_DIV,   ///< Division expression
       ANLFE_SQR,   ///< Square expression
       ANLFE_SQRT,  ///< Square root expression
-#ifdef GECODE_HAS_MPFR
       ANLFE_EXP,   ///< Exponential expression
       ANLFE_LOG,   ///< Logarithm root expression
       ANLFE_ASIN,  ///< expression
@@ -61,7 +60,6 @@ namespace Gecode { namespace MiniModel {
       ANLFE_COS,   ///< expression
       ANLFE_ATAN,  ///< expression
       ANLFE_TAN,   ///< expression
-#endif
       ANLFE_POW,   ///< Pow expression
       ANLFE_NROOT  ///< Nth root expression
     } t;
@@ -221,7 +219,7 @@ namespace Gecode { namespace MiniModel {
           }
         }
         break;
-#ifdef GECODE_HAS_MPFR
+
       case ANLFE_EXP:
         {
           assert(n == 1);
@@ -291,7 +289,6 @@ namespace Gecode { namespace MiniModel {
           tan(home, x, y);
           }
         break;
-#endif
       default:
         GECODE_NEVER;
       }
@@ -507,8 +504,6 @@ namespace Gecode {
     return LinFloatExpr(ae);
   }
 
-#ifdef GECODE_HAS_MPFR
-
   LinFloatExpr
   exp(const LinFloatExpr& e) {
     using namespace MiniModel;
@@ -580,8 +575,6 @@ namespace Gecode {
     ae->a[0] = e;
     return LinFloatExpr(ae);
   }
-
-#endif
 
 }
 

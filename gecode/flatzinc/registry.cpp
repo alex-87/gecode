@@ -2122,7 +2122,6 @@ namespace Gecode { namespace FlatZinc {
       rel(s, x, FRT_EQ, y, BoolVar(s,0,0));
     }
 
-#ifdef GECODE_HAS_MPFR
 #define P_FLOAT_OP(Op) \
     void p_float_ ## Op (FlatZincSpace& s, const ConExpr& ce, AST::Node*) {\
       FloatVar x = s.arg2FloatVar(ce[0]);\
@@ -2157,7 +2156,6 @@ namespace Gecode { namespace FlatZinc {
       log(s,2.0,x,y);
     }
 
-#endif
 
     class FloatPoster {
     public:
@@ -2185,7 +2183,6 @@ namespace Gecode { namespace FlatZinc {
         registry().add("float_lin_le_reif",&p_float_lin_le_reif);
         registry().add("float_lin_lt_reif",&p_float_lin_lt_reif);
 
-#ifdef GECODE_HAS_MPFR
         registry().add("float_acos",&p_float_acos);
         registry().add("float_asin",&p_float_asin);
         registry().add("float_atan",&p_float_atan);
@@ -2199,7 +2196,6 @@ namespace Gecode { namespace FlatZinc {
         // registry().add("float_sinh",&p_float_sinh);
         registry().add("float_tan",&p_float_tan);
         // registry().add("float_tanh",&p_float_tanh);
-#endif
       }
     } __float_poster;
 #endif
