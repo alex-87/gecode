@@ -361,6 +361,15 @@ namespace Gecode { namespace Search { namespace Par {
     tracer.done();
   }
 
+  template<class Tracer>
+  Engine<Tracer>::~Engine() {
+    m_search.acquire();
+    while(!solutions.empty()) {
+      delete(solutions.pop());
+    }
+    m_search.release();
+  }
+
 }}}
 
 // STATISTICS: search-par

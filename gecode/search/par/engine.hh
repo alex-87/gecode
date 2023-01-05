@@ -193,6 +193,7 @@ namespace Gecode { namespace Search { namespace Par {
     /// Check whether engine has been stopped
     virtual bool stopped(void) const;
     //@}
+    ~Engine();
   };
 
 }}}
