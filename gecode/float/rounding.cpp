@@ -44,11 +44,12 @@ namespace Gecode { namespace Float {
 
 #define GECODE_GENR_FUNC(name) \
   FloatNum Rounding::name##_down(FloatNum x) { \
-    return  std::name(x) - std::numeric_limits<FloatNum>::min(); \
+    return std::nextafter(std::name(x), -std::numeric_limits<FloatNum>::infinity()); \
   } \
   FloatNum Rounding::name##_up(FloatNum x) { \
-    return  std::name(x) + std::numeric_limits<FloatNum>::min(); \
+    return std::nextafter(std::name(x), std::numeric_limits<FloatNum>::infinity()); \
   }
+  
   GECODE_GENR_FUNC(exp)
   GECODE_GENR_FUNC(log)
   GECODE_GENR_FUNC(sin)
