@@ -195,7 +195,6 @@ namespace Gecode { namespace Float {
     FloatNum int_up  (FloatNum x);
     //@}
 
-#ifdef GECODE_HAS_MPFR
     /// \name Exponential functions
     //@{
     /// Return lower bound of exponential of \a x (domain: \f$ [-\infty;+\infty]\f$)
@@ -271,7 +270,6 @@ namespace Gecode { namespace Float {
     /// Return upper bound of hyperbolic arctangent of \a x (domain: \f$ [-1;1]\f$)
     GECODE_FLOAT_EXPORT FloatNum atanh_up  (FloatNum x);
     //@}
-#endif
   };
 
 }}
@@ -383,7 +381,6 @@ namespace Gecode {
     friend FloatVal min(const FloatVal& x, const FloatNum& y);
     friend FloatVal min(const FloatNum& x, const FloatVal& y);
 
-#ifdef GECODE_HAS_MPFR
     friend FloatVal exp(const FloatVal& x);
     friend FloatVal log(const FloatVal& x);
     friend FloatVal fmod(const FloatVal& x, const FloatVal& y);
@@ -401,7 +398,6 @@ namespace Gecode {
     friend FloatVal asinh(const FloatVal& x);
     friend FloatVal acosh(const FloatVal& x);
     friend FloatVal atanh(const FloatVal& x);
-#endif
 
     friend bool Float::subset(const FloatVal& x, const FloatVal& y);
     friend bool Float::proper_subset(const FloatVal& x, const FloatVal& y);
@@ -735,7 +731,6 @@ namespace Gecode {
    */
   FloatVal min(const FloatNum& x, const FloatVal& y);
 
-#ifdef GECODE_HAS_MPFR
   /* transcendental functions: exp, log */
   /**
    * \brief Return exponential of \a x
@@ -825,8 +820,6 @@ namespace Gecode {
    * \relates Gecode::FloatVal
    */
   FloatVal atanh(const FloatVal& x);
-
-#endif
 
 }
 
@@ -1222,7 +1215,7 @@ namespace Gecode {
    */
   GECODE_FLOAT_EXPORT void
   div(Home home, FloatVar x0, FloatVar x1, FloatVar x2);
-#ifdef GECODE_HAS_MPFR
+
   /** \brief Post propagator for \f$ \mathrm{exp}(x_0)=x_1\f$
    */
   GECODE_FLOAT_EXPORT void
@@ -1264,7 +1257,6 @@ namespace Gecode {
   GECODE_FLOAT_EXPORT void
   tan(Home home, FloatVar x0, FloatVar x1);
   //@}
-#endif
 
   /**
    * \defgroup TaskModelFloatLI Linear constraints over float variables

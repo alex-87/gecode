@@ -1791,7 +1791,6 @@ namespace Gecode {
   nroot(const LinFloatExpr& x, int n);
   //@}
 
-#ifdef GECODE_HAS_MPFR
   /**
    * \defgroup TaskModelMiniModelTrans Transcendental functions
    *
@@ -1831,7 +1830,6 @@ namespace Gecode {
   GECODE_MINIMODEL_EXPORT LinFloatExpr
   tan(const LinFloatExpr& x);
   //@}
-#endif
 #endif
 
 }

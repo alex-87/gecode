@@ -42,8 +42,16 @@
 #include <gmp.h>
 #include <mpfr.h>
 
+#else
+
+#include <cmath>
+#include <limits>
+
+#endif
+
 namespace Gecode { namespace Float {
 
+#ifdef GECODE_HAS_MPFR
   /// Type signature of mpfr function
   typedef int mpfr_func(mpfr_t, const __mpfr_struct*, mp_rnd_t);
 
@@ -66,6 +74,19 @@ namespace Gecode { namespace Float {
   FloatNum Rounding::name##_up(FloatNum x) { \
     return invoke_mpfr(x, mpfr_##name, GMP_RNDU); \
   }
+
+#else
+
+#define GECODE_GENR_FUNC(name) \
+  FloatNum Rounding::name##_down(FloatNum x) { \
+    return std::nextafter(std::name(x), -std::numeric_limits<FloatNum>::infinity()); \
+  } \
+  FloatNum Rounding::name##_up(FloatNum x) { \
+    return std::nextafter(std::name(x), std::numeric_limits<FloatNum>::infinity()); \
+  }
+
+#endif
+
   GECODE_GENR_FUNC(exp)
   GECODE_GENR_FUNC(log)
   GECODE_GENR_FUNC(sin)
@@ -84,8 +105,6 @@ namespace Gecode { namespace Float {
 #undef GECODE_GENR_FUNC
 
 }}
-
-#endif
 
 // STATISTICS: float-var
 

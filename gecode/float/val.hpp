@@ -407,8 +407,6 @@ namespace Gecode {
     return FloatVal(min(x,y.x));
   }
 
-#ifdef GECODE_HAS_MPFR
-
   forceinline FloatVal
   exp(const FloatVal& x) {
     return FloatVal(exp(x.x));
@@ -481,7 +479,6 @@ namespace Gecode {
     return FloatVal(atanh(x.x));
   }
 
-#endif
 }
 
 namespace Gecode { namespace Float {

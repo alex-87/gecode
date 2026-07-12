@@ -35,8 +35,6 @@
 
 #include <gecode/float.hh>
 
-#ifdef GECODE_HAS_MPFR
-
 #include <gecode/float/trigonometric.hh>
 
 namespace Gecode {
@@ -84,7 +82,5 @@ namespace Gecode {
   }
 
 }
-
-#endif
 
 // STATISTICS: float-post

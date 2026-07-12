@@ -36,7 +36,6 @@
 #include "test/float.hh"
 #include <gecode/minimodel.hh>
 
-#ifdef GECODE_HAS_MPFR
 
 #include <cmath>
 #include <algorithm>
@@ -511,5 +510,4 @@ namespace Test { namespace Float {
    }
 }}
 
-#endif
 // STATISTICS: test-float

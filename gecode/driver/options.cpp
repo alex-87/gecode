@@ -542,9 +542,9 @@ namespace Gecode {
               << std::endl
               << " - Trigonometric and transcendental float constraints: ";
 #ifdef GECODE_HAS_MPFR
-    std::cerr  << "enabled";
+    std::cerr  << "enabled (MPFR)";
 #else
-    std::cerr << "disabled";
+    std::cerr << "enabled (Libm)";
 #endif
 #endif
     std::cerr << std::endl;
